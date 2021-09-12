@@ -29,7 +29,7 @@ body {
 }
 
 #countdown {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 #particles-js {
@@ -40,6 +40,10 @@ body {
 }
 
 .card {
-  width: 40%;
   background-color: rgba(245, 245, 245, 0.1);
+}
+@media (min-width: 768px) {
+.card {
+  width:50%;
+}
 }
