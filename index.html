@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Brython -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython_stdlib.js">
+    </script>
+    <!-- Particles and ThreeJS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+</head>
+
+<div id="particles-js">
+    <canvas class="particles-js-canvas-el" width="1409" height="600" style="width: 100%; height: 100%;"></canvas>
+</div>
+
+<body onload="brython(1)">
+    <div class="container">
+        <div class="vertical-center-row">
+            <div align="center">
+                <div class="card text-center">
+                    <div class="card-header">
+                        SECONDS TILL I FINISH MY DEGREE
+                    </div>
+                    <div class="card-body">
+                        <p class="card=text" id="countdown"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script type="text/python3">
+            import sys
+            from browser import document as doc
+            from browser import timer
+            import datetime as dt
+
+            def countdown():
+                now = dt.datetime.now()
+                end = dt.datetime(2022,4,20,23,59,59)
+                difference = int((end-now).total_seconds())
+                doc['countdown'].text = difference
+            
+            countdown()
+            timer.set_interval(countdown, 500)
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="script.min.js"></script>
+    </body>
+</html>
